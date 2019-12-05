@@ -67,7 +67,7 @@
             </table>
         </div>
 
-         <!-- Modal -->
+        <!-- Modal -->
         <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -75,14 +75,19 @@
                         <h3 id="modalTitle">User Info</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <div class="modal-body"><p></p></div>
+                    <div class="modal-body">
+                        <p><strong>Id: </strong><span id="userid"></span></p>
+                        <p><strong>Name: </strong><span id="name"></span></p>
+                        <p><strong>Email: </strong><span id="email"></span></p>
+                        <p><strong>Created at: </strong><span id="created"></span></p>
+                    </div>
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-         <!-- End Modal -->
+        <!-- End Modal -->
 
     </div>
 
@@ -90,18 +95,22 @@
         // Initialize the datatable
         $(document).ready(function () {
             const dataTable = $('#userInfo').DataTable();
-            
-            // Get userinfo from clicked row
+
+            // Get userinfo from clicked row and show in modal
             $('#userInfo').on('click', 'button', function () {
                 const clickedRow = dataTable.row($(this).closest('tr'));
-                const id
-                const modalBody = `
-                     User id: ${clickedRow.data()[1]}
-                     Name: ${clickedRow.data()[2]} 
-                     Email: ${clickedRow.data()[3]}
-                     Created at: ${clickedRow.data()[4]}
-                     `;
-                $('#myModal .modal-body').html(modalBody);
+
+                const user = {
+                    id: clickedRow.data()[1],
+                    name: clickedRow.data()[2],
+                    email: clickedRow.data()[3],
+                    created: clickedRow.data()[4]
+                }
+
+                $('#userid').text(user.id);
+                $('#name').text(user.name);
+                $('#email').text(user.email);
+                $('#created').text(user.created);
                 $('#myModal').modal('toggle');
             });
         });
