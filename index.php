@@ -32,13 +32,32 @@
     <title>Userlist</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Userlist</h1>
-        <ul class="list-group">
-            <?php foreach($users as $user) : ?>
-                <li class="list-group-item"><?php echo $user['name'] ?></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+<div class="container">  
+                <h3>Userlist</h3>  
+                <br />  
+                <div class="table-responsive">  
+                     <table id="userInfo" class="table table-striped table-bordered">  
+                          <thead>  
+                               <tr>  
+                                    <td>Name</td>  
+                                    <td>Email</td>  
+                                    <td>Created at</td>  
+                               </tr>  
+                          </thead>  
+                          <?php  
+                          foreach($users as $user)  
+                          {  
+                               echo '  
+                               <tr>  
+                                    <td>'.$user["name"].'</td>  
+                                    <td>'.$user["email"].'</td>  
+                                    <td>'.$user["created"].'</td>  
+                               </tr>  
+                               ';  
+                          }  
+                          ?>  
+                     </table>  
+                </div>  
+           </div>    
 </body>
 </html>
