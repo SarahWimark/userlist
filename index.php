@@ -1,3 +1,4 @@
+<?php require('config/db.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,33 @@
 </head>
 <body>
 <?php
-include 'db_connection.php';
-$conn = OpenConnection();
-echo "Connected Successfully";
-CloseConnection($conn);
+
+   // Open a connection to the database
+    $conn = OpenConnection();
+
+    // Create a query to get the users in the users table
+    $query = 'SELECT * FROM users';
+
+    // Get the result of the query
+    $result = mysqli_query($conn, $query);
+
+    // Fetch the users data
+    $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    var_dump($users);
+    //Free the result
+    mysqli_free_result($result);
+
+    CloseConnection($conn);
 ?>
+<div class="container">
+<h1>Userlist</h1>
+    <ul class="list-group">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+</div>
 </body>
 </html>
