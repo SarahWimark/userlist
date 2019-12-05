@@ -39,6 +39,7 @@
                      <table id="userInfo" class="table table-striped table-bordered">  
                           <thead>  
                                <tr>  
+                                    <td>Id</td> 
                                     <td>Name</td>  
                                     <td>Email</td>  
                                     <td>Created at</td>  
@@ -49,6 +50,7 @@
                           {  
                                echo '  
                                <tr>  
+                                    <td>'.$user["id"].'</td>  
                                     <td>'.$user["name"].'</td>  
                                     <td>'.$user["email"].'</td>  
                                     <td>'.$user["created"].'</td>  
@@ -58,6 +60,11 @@
                           ?>  
                      </table>  
                 </div>  
-           </div>    
+           </div>   
+           <script>  
+                $(document).ready(function(){  
+                    $('#userInfo').DataTable();  
+                });  
+            </script>  
 </body>
 </html>
