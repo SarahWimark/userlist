@@ -1,5 +1,6 @@
 <?php
 
+// Open a connection to MySQL database
 function OpenConnection()
  {
     $dbhost = "localhost";
@@ -11,6 +12,7 @@ function OpenConnection()
     return $conn;
  }
  
+// Close the connection to MySQL database
 function CloseConnection($conn){
      $conn -> close();
     }

@@ -100,6 +100,7 @@
             $('#userInfo').on('click', 'button', function () {
                 const clickedRow = dataTable.row($(this).closest('tr'));
 
+                // Create user object with the data from the clicked row
                 const user = {
                     id: clickedRow.data()[1],
                     name: clickedRow.data()[2],
@@ -107,6 +108,7 @@
                     created: clickedRow.data()[4]
                 }
 
+                // Display the user data in the modal
                 $('#userid').text(user.id);
                 $('#name').text(user.name);
                 $('#email').text(user.email);
