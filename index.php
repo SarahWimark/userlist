@@ -13,6 +13,11 @@
     <title>Userlist</title>
 </head>
 <body>
-    
+<?php
+include 'db_connection.php';
+$conn = OpenConnection();
+echo "Connected Successfully";
+CloseConnection($conn);
+?>
 </body>
 </html>
